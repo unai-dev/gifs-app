@@ -19,12 +19,6 @@ export const SearchBar: FC<Props> = ({
     setQuery("");
   };
 
-  const keyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  };
-
   return (
     <>
       <div className="search-container">
@@ -33,7 +27,9 @@ export const SearchBar: FC<Props> = ({
           placeholder={placeholder}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          onKeyDown={keyDown}
+          onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.key === "Enter") handleSearch();
+          }}
         />
         <button onClick={handleSearch}>{buttonText}</button>
       </div>
