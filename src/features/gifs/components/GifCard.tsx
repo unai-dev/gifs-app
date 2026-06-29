@@ -9,7 +9,9 @@ export const GifCard: FC<Props> = ({ gif }) => {
   return (
     <>
       <div key={gif.id} className="gif-card">
-        <img src={gif.url} alt={gif.title} />
+        <a href={gif.url}>
+          <img src={gif.image} alt={gif.title} />
+        </a>
         <h3>{gif.title}</h3>
         <p>
           {gif.width} x {gif.height} (1.5m)
