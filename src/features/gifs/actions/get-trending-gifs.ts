@@ -12,8 +12,9 @@ export const getTrendingGifs = async (): Promise<Gif[]> => {
   return response.data.data.map((gif) => ({
     id: gif.id,
     title: gif.title,
-    image: gif.images.original.url,
     url: gif.url,
+
+    image: gif.images.original.url,
     height: +gif.images.original.height,
     width: +gif.images.original.width,
   }));
