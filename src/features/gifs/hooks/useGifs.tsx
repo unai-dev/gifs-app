@@ -7,7 +7,6 @@ export const useGifs = () => {
   const [previousTerms, setPreviousTerms] = useState<string[]>([]);
 
   const handleTermClicked = (term: string) => {
-    console.log({ term });
     handleSearch(term);
   };
 
@@ -18,7 +17,7 @@ export const useGifs = () => {
 
     if (previousTerms.includes(query)) return;
 
-    setPreviousTerms([query, ...previousTerms.splice(0, 5)]);
+    setPreviousTerms([query, ...previousTerms.splice(0, 4)]);
 
     const gifs = await getGifsByQuery(query);
 
