@@ -24,10 +24,7 @@ export const SearchGifs = () => {
       />
 
       {/* Busquedas previas */}
-      <PreviousSearches
-        searches={previousTerms}
-        onHandleTermClicked={handleTermClicked}
-      />
+      <PreviousSearches searches={previousTerms} onQuery={handleTermClicked} />
 
       {/* Gifs */}
       <GifList gifs={gifs ? gifs : mockGifs} />

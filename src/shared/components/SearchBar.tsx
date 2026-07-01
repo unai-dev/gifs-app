@@ -26,7 +26,6 @@ export const SearchBar: FC<Props> = ({
 
   const handleSearch = () => {
     onQuery(query);
-    setQuery("");
   };
 
   return (
@@ -38,10 +37,12 @@ export const SearchBar: FC<Props> = ({
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
-            if (event.key === "Enter") handleSearch();
+            if (event.key === "Enter" && query !== "") handleSearch();
           }}
         />
-        <button onClick={handleSearch}>{buttonText}</button>
+        <button onClick={handleSearch} disabled={query === "" ? true : false}>
+          {buttonText}
+        </button>
       </div>
     </>
   );
